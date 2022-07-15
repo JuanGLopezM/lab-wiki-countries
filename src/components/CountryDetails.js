@@ -1,8 +1,15 @@
 //This is the component that we will render via the react-router-dom's Route, and it should receive the country code (alpha3Code) via the URL.
-
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Spinner from './Spinner';
 
 function CountryDetails (props) {
     const {countryDetails,setCountryDetails} = useState([])
+    const { alpha3Code } = useParams();
+
     const {id} = useParams;
     useEffect(() => {
         setCountryDetails();
@@ -39,29 +46,7 @@ function CountryDetails (props) {
               </tbody>
             </table>
           </div>
-    // const [projects, setProjects] = useState([]);
-  
-    // // This effect depends on `props.projects`.
-    // // It will run on initial render and every time
-    // // when the `props.projects` gets updated.
-    // useEffect(() => {
-    //   setProjects(props.projects);
-    // }, [props.projects]);
-  
-  
-    // return (
-    //   <div>
-    //     <h1>Projects</h1>
-    //     {projects.map((project) => {
-    //       return (
-    //         <div key={project._id} className="project">
-    //           <h3>{project.name}</h3>
-    //           <p>{project.technologies}</p>
-    //         </div>
-    //       );
-    //     })}
-    //   </div>
-    // );
+    )
 }
 
   export default CountryDetails;
